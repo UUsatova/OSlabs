@@ -100,7 +100,6 @@ int main(int argc, char const *argv[]){
     return 0;
 }
 
-
 void *thread_function(void *arg) {
     int num = *(int*)arg;
     int number = 0;
