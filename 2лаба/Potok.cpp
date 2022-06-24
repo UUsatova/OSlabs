@@ -16,7 +16,7 @@ struct Array{
 };
 
 void showArray(Array array){
-for (int i = 0; i < array.size; i++) {
+	for (int i = 0; i < array.size; i++) {
 		cout << array.array[i] << " ";
 
 	}
@@ -24,7 +24,7 @@ for (int i = 0; i < array.size; i++) {
 }
 
 void inArray(Array array){
-for (int i = 0; i < array.size; i++) {
+	for (int i = 0; i < array.size; i++) {
 		cin >> array.array[i] ;
 
 	}
@@ -75,25 +75,19 @@ int main(int argc, char * argv[]){
 
 
 	cout << "array size:" << endl;
-    Array array; 
+    	Array array; 
 	cin >> array.size ;
 	array.array = new int[array.size];
 	cout << "array:" << endl;
-    inArray(array);
+    	inArray(array);
 	showArray(array);
 	
-	
 	pthread_t thread1;
-	//Создадим потока и проверим ошибки:
 	int result = pthread_create(&thread1, NULL, min_max, &array);
 	if (result != 0) {
 		perror("Создание первого потока!");
 		return EXIT_FAILURE;
 	}
-
-	
-	
-	
 
 	pthread_t thread2;
 	result = pthread_create(&thread2, NULL, average, &array);
@@ -101,7 +95,6 @@ int main(int argc, char * argv[]){
 		perror("Создание второго потока");
 		return EXIT_FAILURE;
 	}
-
 
 
 	int*  maxmin ;
@@ -125,7 +118,7 @@ int main(int argc, char * argv[]){
 	cout<< "average: " << average << endl;
 
 
-    changeArray(array);
+   	 changeArray(array);
 	showArray(array);
 
 	printf("Done\n");
