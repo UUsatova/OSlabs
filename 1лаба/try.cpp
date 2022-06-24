@@ -11,21 +11,16 @@ using namespace std;
 void outFile( char* fileName){
     ifstream fin(fileName); // открыли файл для чтения
     string line;
-    while (getline(fin, line))
-        {
-            cout << line << endl;
-        }
- 
-    
+    while (getline(fin, line)){
+        cout << line << endl;
+    }
     fin.close(); 
-
 }
+
 
 int main(int argc, char *argv[]){
 
-    cout << "start\n";
-
-
+     cout << "start\n";
      char* bfileName = "./bin2.dat";
      //cin >> fileName;
      char* amountOfLinesInBFile = "3";
@@ -56,14 +51,12 @@ int main(int argc, char *argv[]){
     outFile(bfileName);
 
 
-
-
      char* reportFileName = "report.txt";
      //cin >> reportFileName;
      char* payPerHour = "3";
      //cin >> payPerHour;
 
-     pid_t childReporter = fork();
+    pid_t childReporter = fork();
     if (childReporter < 0){
         cout << "fork():ERROR childReporter\n";
 
@@ -87,7 +80,5 @@ int main(int argc, char *argv[]){
         
     }
     outFile(reportFileName);
-
-       
 
 }
